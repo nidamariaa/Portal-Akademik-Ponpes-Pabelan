@@ -13,6 +13,10 @@ Negeri Sunan Gunung Djati Bandung.
 
 * SQLite 3
 
+* Travis CI
+
+* Port : localhost:9999
+
 ## Kelompok
 
 Kelompok kami terdiri dari 2 orang yaitu :

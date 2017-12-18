@@ -1,53 +1,42 @@
+<!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#"><%= image_tag("LogoPutih.png") %></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                  <ul class="navbar-nav mr-auto">
+                  	<li class="nav-item active">
+                      <a class="nav-link" href="/santri/index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/santri/raport">Raport</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/santri/profil">Profil</a>
+                    <li class="nav-item">
+						          <%= link_to 'logout', santri_logout_path, method: :delete, class: 'nav-link' %>
+                    </li>                    
+                 </ul>
+                </div>  
+</nav>
+<!--end navbar-->
 </header>
-<div class="raport-santri m-5">
-	<legend>Nilai Raport</legend>
-	<hr>
-	<table class="table table-dark">
-		<tr>
-			<th>Bahasa Indonesia</th>
-			<td>angka</td>
-			<td>huruf</td>
-		</tr>
-		<tr>
-			<th>Matematika</th>
-			<td>angka</td>
-			<td>huruf</td>
-		</tr>
-		<tr>
-			<th>IPA</th>
-			<td>angka</td>
-			<td>huruf</td>
-		</tr>
-		<tr>
-			<th>IPS</th>
-			<td>angka</td>
-			<td>huruf</td>
-		</tr>
-	</table>
-</div>
-<div class="kenaikan-kelas-santri m-5">
-	<legend>Kenaikan Kelas</legend>
-	<hr>
-	<table class="table table-light">
-		<tr>
-			<td>Anda : </td>
-			<td>kenaikan</td>
-		</tr>
-	</table>
-</div>
-<div class="ekskul-santri p-5">
-	<legend>Ekstrakulikuler</legend>
-	<hr>
-	<table class="table table-dark">
-		<tr>
-			<td>Pramuka</td>
-			<td>A</td>
-		</tr>
-		<tr>
-			<td>Paskibra</td>
-			<td>B</td>
-		</tr>
-	</table>
-</div>
-<a href="">Logout</a>
-</div>
+<!--end header-->
+<% santri = current_santri %>
+  <div class="m-5">
+    <h1>Hi! <%= santri.nama %></h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>

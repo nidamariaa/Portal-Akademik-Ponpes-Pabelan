@@ -1,0 +1,105 @@
+	<!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#"><%= image_tag("LogoPutih.png") %></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                  <ul class="navbar-nav mr-auto">
+                  	<li class="nav-item">
+                      <a class="nav-link" href="/guru/index">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/guru/penilaian">Penilaian</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/guru/profil">Profil</a>
+                    <li class="nav-item">
+						          <%= link_to 'logout', guru_logout_path, method: :delete, class: 'nav-link' %>
+                    </li>                    
+                 </ul>
+                </div>  
+    </nav>
+    <!--end navbar-->
+  </header>
+  <!--end header-->
+  <% guru = current_guru %>
+  <!--title-->
+  <div class="title2">
+     <h2>Penilaian Mata Pelajaran <%= guru.mapel %></h2>
+  </div>
+  <!--end title-->
+  <% flash.each do |type, message| %>
+    <div class="alert alert-<%= type %>"><%= message %></div>
+  <% end %>
+  <div class="m-5">
+    <table class="table table-light">
+      <tr>
+        <th>Nama Santri</th>
+        <th>NIS</th>
+        <th>NISN</th>
+        <th>Kelas</th>
+        <th>Angka</th>
+        <th>Praktik</th>
+        <th>Huruf</th>
+        <th></th>
+      </tr>
+      <% @santri.each do |santri|%>
+      <% @nilai.each do |nilai|%>
+      <tr>
+        <td><%= santri.nama %></td>
+        <td><%= santri.nis %></td>
+        <td><%= santri.nisn %></td>
+        <td><%= santri.kelas %></td>
+        <% if nilai.nis = santri.nis %>
+        <td><%= nilai.angka %></td>
+        <td><%= nilai.praktik %></td>
+        <td><%= nilai.huruf %></td>
+        <% end %>
+        <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#form-nilai<%= santri.id %>">Tambah Nilai</button></td>
+        <div id="form-nilai<%= santri.id %>" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- konten modal-->
+            <div class="modal-content">
+              <!-- heading modal -->
+              <div class="modal-header">
+                <h4 class="modal-title">Tambah Nilai</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <!-- body modal -->
+              <div class="modal-body">
+                <%= form_tag %>
+                  <%= text_field_tag :nama, params[:nama], class: "form-control",  placeholder: "Nama", value: santri.nama, :readonly => true %>
+                  <br>
+                  <%= text_field_tag :nis, params[:nis], class: "form-control",  placeholder: "NIS", value: santri.nis, :readonly => true %>
+                  <br>
+                  <%= text_field_tag :nisn, params[:nisn], class: "form-control",  placeholder: "NISN", value: santri.nisn, :readonly => true %>
+                  <br>
+                  <%= text_field_tag :kelas, params[:kelas], class: "form-control",  placeholder: "Kelas", value: santri.kelas, :readonly => true %>
+                  <br>
+                  <%= text_field_tag :thn_ajaran, params[:thn_ajaran], class: "form-control",  placeholder: "Tahun Ajaran" %>
+                  <br>
+                  <%= text_field_tag :mapel, params[:mapel], class: "form-control",  placeholder: "Mapel", value: guru.mapel, :readonly => true %>
+                  <br>
+                  <%= text_field_tag  :kkm, params[:kkm], class: "form-control",  placeholder: "KKM" %>
+                  <br>
+                  <%= text_field_tag :angka, params[:angka], class: "form-control",  placeholder: "Angka" %>
+                  <br>
+                  <%= text_field_tag :praktik, params[:praktik], class: "form-control",  placeholder: "Praktik" %>
+                  <br>
+                  <%= text_field_tag :huruf, params[:huruf], class: "form-control",  placeholder: "Huruf" %>
+              </div>
+              <!-- footer modal -->
+              <div class="modal-footer">
+                <center><%= submit_tag 'Simpan', class: "btn btn-outline-primary" %></center>
+              </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </div>

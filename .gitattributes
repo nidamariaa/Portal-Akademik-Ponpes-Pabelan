@@ -5,4 +5,4 @@
 *.yml linguist-vendored=false
 *.json linguist-vendored=false
 *.rb linguist-vendored=false
-*.html.erb linguist-vendored=true
+*.html.erb linguist-language=Ruby

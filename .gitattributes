@@ -1,2 +1,2 @@
 * linguist-vendored
-*.html.erb linguist-vendored=true
+*rb linguist-vendored=false

@@ -3,5 +3,6 @@
 *.coffee linguist-vendored=false
 *.css linguist-vendored=false
 *.yml linguist-vendored=false
+*.json linguist-vendored=false
 *.rb linguist-vendored=false
 *.html.erb linguist-vendored=true

@@ -4,5 +4,4 @@
 *.css linguist-vendored=false
 *.yml linguist-vendored=false
 *.rb linguist-vendored=false
-*.html linguist-vendored=false
 *.html.erb linguist-vendored=true
